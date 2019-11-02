@@ -1,0 +1,32 @@
+.transaction {
+  margin: 0 auto;
+  color: black;
+  width: 600px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+}
+.firstRow {
+  background-color: #ebeef2;
+  color: white;
+}
+.columnTitle {
+  color: #272727;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.row {
+  background-color: #ffffff;
+}
+.column {
+  color: black;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 15px;
+  color: #5c6975;
+}
+
+.column:first-letter {
+  text-transform: uppercase;
+}

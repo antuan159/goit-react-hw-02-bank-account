@@ -1,0 +1,35 @@
+.balance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+
+.span:nth-of-type(1)::before {
+  content: '↑';
+  display: inline-block;
+  padding-right: 3px;
+  transform: scale(1.5);
+  color: green;
+}
+
+.span:nth-of-type(2)::before {
+  content: '↓';
+  display: inline-block;
+  padding-right: 3px;
+  transform: scale(1.5);
+  color: red;
+}
+
+.span {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  font-style: normal;
+  text-align: center;
+  padding: 8px 16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #5c6975;
+}
