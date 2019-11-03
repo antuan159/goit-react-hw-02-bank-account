@@ -39,7 +39,7 @@ export default class Controls extends Component {
           className={style.input}
           type="number"
           name="amount"
-          value={amount}
+          value={amount===0? '' : amount}
           onChange={this.handleChangeInput}
         />
         <button
