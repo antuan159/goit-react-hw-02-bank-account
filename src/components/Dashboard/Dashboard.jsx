@@ -56,8 +56,15 @@ export default class Dashboard extends Component {
 
   notifyNotBalance = () =>
     toast('На счету недостаточно средств для проведения операции!');
+    
+  notifyNegativeBalance = () =>
+    toast('Введён отрицательный баланс попробуйте снова');
 
   createTransaction = (amount, type) => {
+    if(amount<0){
+      this.notifyNegativeBalance();
+      return null;
+    }
     if (amount === 0) {
       this.notifyBalance();
       return null;
