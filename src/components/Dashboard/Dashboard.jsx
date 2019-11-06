@@ -25,41 +25,34 @@ export default class Dashboard extends Component {
     const amount = Number(inputAmount);
     if (amount < 0) {
       notyfy.negativeBalance();
-      return;
-    }
-    if (amount === 0) {
+    } else if (amount === 0) {
       notyfy.notSumm();
-      return;
+    } else {
+      const transaction = this.createTransaction(amount, 'deposit');
+      this.setState(prevState => ({
+        transactions: [...prevState.transactions, transaction],
+        balance: prevState.balance + amount,
+      }));
     }
-
-    const transaction = this.createTransaction(amount, 'deposit');
-    this.setState(prevState => ({
-      transactions: [...prevState.transactions, transaction],
-      balance: prevState.balance + amount,
-    }));
   };
 
   handleWithdraw = inputAmount => {
     const amount = Number(inputAmount);
+    const { balance } = this.state;
+
     if (amount < 0) {
       notyfy.negativeBalance();
-      return;
-    }
-    if (amount === 0) {
+    } else if (amount === 0) {
       notyfy.notSumm();
-      return;
-    }
-    const { balance } = this.state;
-    if (amount > balance) {
+    } else if (amount > balance) {
       notyfy.lackOfBalance();
-      return;
+    } else {
+      const transaction = this.createTransaction(amount, 'withdraw');
+      this.setState(prevState => ({
+        transactions: [...prevState.transactions, transaction],
+        balance: prevState.balance - amount,
+      }));
     }
-
-    const transaction = this.createTransaction(amount, 'withdraw');
-    this.setState(prevState => ({
-      transactions: [...prevState.transactions, transaction],
-      balance: prevState.balance - amount,
-    }));
   };
 
   onBalanceOrWithdraw = () => {
