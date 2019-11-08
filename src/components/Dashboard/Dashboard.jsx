@@ -41,7 +41,6 @@ export default class Dashboard extends Component {
 
   handleWithdraw = inputAmount => {
     const amount = Number(inputAmount);
-
     if (amount < 0) {
       notyfy.negativeBalance();
       return;
@@ -50,7 +49,6 @@ export default class Dashboard extends Component {
       notyfy.notSumm();
       return;
     }
-
     const { balance } = this.state;
     if (amount > balance) {
       notyfy.lackOfBalance();
